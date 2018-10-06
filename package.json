@@ -1,0 +1,33 @@
+{
+  "name": "@zaufi/mocha-test-data-loader",
+  "version": "0.9.0",
+  "description": "Parameterize `mocha` tests with data",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaufi/mocha-mocha-test-data-loader.git"
+  },
+  "keywords": [
+    "js",
+    "nodejs",
+    "mocha",
+    "test",
+    "data",
+    "loader"
+  ],
+  "author": "Alex Turbov <i.zaufi@gmail.com> (https://zaufi.github.io)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/zaufi/mocha-mocha-test-data-loader/issues"
+  },
+  "homepage": "https://github.com/zaufi/mocha-mocha-test-data-loader#readme",
+  "engines": {
+    "node": ">=10.10.0"
+  },
+  "dependencies": {
+    "mocha": "^5.2.0"
+  }
+}
