@@ -60,7 +60,7 @@ Example:
           , {
                 // Note, the test case name also could be a part of the data file, so
                 // the only property you need is to specify what the file to load data from.
-              , test_data_from: 'case-four'
+                test_data_from: 'case-four'
             }
         ];
 
