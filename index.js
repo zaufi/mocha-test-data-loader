@@ -1,8 +1,8 @@
 'use strict';
 
 // Foreign imports
-import { readFileSync } from 'fs';
-import path from 'path';
+var fs = require('fs');
+var path = require('path');
 
 const makeDataFilename = (test_filename, mod_name) =>
 {
@@ -23,7 +23,7 @@ function* matched_keys(obj, re)
             yield key;
 }
 
-const enrichTestData = (data, base_data_path)
+const enrichTestData = (data, base_data_path) =>
 {
     let result = data;
 
@@ -37,7 +37,7 @@ const enrichTestData = (data, base_data_path)
     // Try load data from properties named `.*_file`
     for (let key of matched_keys(result, /.*_file$/))
     {
-        result = {...result, ...JSON.parse(readFileSync(result[key]))};
+        result = {...result, ...JSON.parse(fs.readFileSync(result[key]))};
     }
 
     return result;
@@ -53,7 +53,7 @@ const enrichTestData = (data, base_data_path)
  *
  * \todo Check `.name` attribute before access it!
  */
-export const makeTestCase = (tests, fn, is_async=false) =>
+const makeTestCase = (tests, fn, is_async=false) =>
 {
     tests.forEach(test =>
     {
@@ -75,3 +75,5 @@ export const makeTestCase = (tests, fn, is_async=false) =>
         }
     });
 }
+
+module.exports = makeTestCase;
