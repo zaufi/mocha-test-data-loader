@@ -30,11 +30,16 @@ The module exports the only function `makeTestCase(collection, userTestFn)`.
 Every item of the given collection **must have** the `name` property with a short description
 of the test case. The other ~keys~ properties are optional, however:
 
-- properties which names ends with `_file` will be used to load JSON data from
-  and merge it with the object instance get passed to the user provided function;
-- properties which names ends with `_from` will be used to load JSON data from
-  `<directory-of-the-test-file>/data/<name-of-the-tes-file>.d/<value>.json`, where
-  the `value` placeholder is a string value of the property.
+- properties which names end with `_file` will be used to load JSON data from
+  and merge it with the object instance get passed to the user provided function.
+  It's quite possible to have multiple properties referencing different files --
+  all loaded data is going to be merged into a single object and later passed to
+  the user-provided function;
+- properties which names end with `_from` will be used to load JSON data from
+  `<directory-of-the-test-file>/data/<name-of-the-test-file>.d/<value>.json`, where
+  the `value` placeholder is a string value of the property. It is also possible
+  to have multiple keys. All of them are going to be loaded in order of declaration,
+  so in case of property names clash the latest value will win.
 
 Example:
 
@@ -42,7 +47,7 @@ Example:
     {
         const tests = [
             {
-                // The simples one: all data specified right here
+                // The simplest one: all data specified right here
                 name: 'case one'
               , input: 'this is just an ordinal string'
               , expected: 'this is the expected result (also string)'
@@ -67,7 +72,7 @@ Example:
         makeTestCase(tests, data =>
         {
             // Just make sure the current literal object has all expected properties
-            expect(data).to.contain.all.keys(['name', 'some', 'input', 'expected']);
+            expect(data).to.contain.all.keys(['name', 'input', 'expected']);
 
             // Do some trivial (or not) check
             expect(transformInput(data.input)).to.be.equal(data.expected);
@@ -75,3 +80,6 @@ Example:
         });
 
     }
+
+The JSON files mentioned in example supposed to have properties `input` and `expected`.
+Also, as noticed in the very last test case, `case-four.json` should have the `name` property.
