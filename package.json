@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/zaufi/mocha-mocha-test-data-loader/issues"
   },
-  "homepage": "https://github.com/zaufi/mocha-mocha-test-data-loader#readme",
+  "homepage": "https://github.com/zaufi/mocha-mocha-test-data-loader",
   "engines": {
     "node": ">=10.10.0"
   },
