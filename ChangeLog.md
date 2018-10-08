@@ -5,11 +5,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [Unreleased]
+
+### Added
+
+- Introduce `makeTestSuite()` which is the same as default exported `makeTestCase`
+  but use `describe()` instead of `it()` from `mocha`.
+
+
 ## [1.0.2] - 2018.10.7
 
 ### Fixed
 
-- Better documentation;
+- Better documentation.
 
 
 [Unreleased]: https://github.com/zaufi/mocha-test-data-loader/compare/release/1.0.2...HEAD
