@@ -1,0 +1,7 @@
+flow-typed/
+src/
+test/
+
+.flowconfig
+.gitignore
+.pre-commit-config.yaml

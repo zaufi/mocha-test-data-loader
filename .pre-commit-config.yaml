@@ -1,0 +1,13 @@
+# Read the docs here: https://pre-commit.com
+# kate: indent-width 2; tab-width 2;
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v1.4.0-1
+    fail_fast: false
+    hooks:
+      - id: check-case-conflict
+      - id: end-of-file-fixer
+        exclude: flow-typed/
+      - id: trailing-whitespace
+        exclude: flow-typed/
